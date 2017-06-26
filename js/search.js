@@ -1,5 +1,6 @@
 $(document).ready(function(){
   console.log("Hello World");
+
   $(".select-btn").click(function() {
     var parent = $(this).parents(".jumbotron");
     var oldColor = parent.css("background-color");

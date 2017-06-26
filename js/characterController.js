@@ -1,5 +1,4 @@
-var app = angular.module('deadPool', []);
-app.controller('characterCtrl', function($scope) {
+myApp.controller('characterCtrl', function($scope) {
     $scope.chosen = {name: "", payout: 0};
     $scope.names = [
       "Tyrion Lannister",
