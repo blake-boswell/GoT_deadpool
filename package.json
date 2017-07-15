@@ -5,7 +5,10 @@
   "main": "\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[ app.js",
   "dependencies": {
     "angular-route": "^1.6.4",
-    "mocha": "^3.4.2"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mocha": "^3.4.2",
+    "mongoose": "^4.11.2"
   },
   "devDependencies": {},
   "scripts": {
