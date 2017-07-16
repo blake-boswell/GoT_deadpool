@@ -1,5 +1,6 @@
 var deadPool = angular.module("deadPool", ["ngRoute"]);
 
+//Set up facebook login
 window.fbAsyncInit = function() {
     FB.init({
       appId            : '1965730737036482',
