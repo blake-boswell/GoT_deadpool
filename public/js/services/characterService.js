@@ -1,4 +1,4 @@
-deadPool.module('characterService', []).factory('character', ['$http', function($http) {
+angular.module('characterService', []).factory('character', ['$http', function($http) {
 
     return {
         // call to get all characters

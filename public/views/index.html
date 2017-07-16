@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <title>Season 7 Dead Pool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet"
@@ -23,16 +24,14 @@
     </script>
 
     <!-- Angularjs -->
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js">
-    </script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js">
-    </script> -->
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <!-- <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script> -->
 
     <!-- Scripts -->
     <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/search.js"></script>
+    <!-- <script type="text/javascript" src="js/search.js"></script> -->
     <script type="text/javascript" src="js/routes.js"></script>
     <script type="text/javascript" src="js/appRoutes.js"></script>
     <script type="text/javascript" src="js/services/characterService.js"></script>
@@ -41,12 +40,12 @@
 
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/navbar.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
 
 
   </head>
-  <body ng-app="deadPool">
+  <body ng-app="deadPoolApp" ng-controller="characterController">
     <nav class="navbar navbar-default navbar-inverse" role="navigation">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -95,7 +94,7 @@
     							<div class="col-md-12">
     								Login via
     								<div class="social-buttons">
-    									<a href="#" class="btn btn-fb" ng-controller="loginCtrl" ng-click="FBLogin()"><i class="fa fa-facebook"></i> Facebook</a>
+    									<a href="#" class="btn btn-fb" ng-controller="loginController" ng-click="FBLogin()"><i class="fa fa-facebook"></i> Facebook</a>
     									<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
     								</div>
                                     or

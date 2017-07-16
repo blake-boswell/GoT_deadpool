@@ -1,6 +1,7 @@
 // grab the user model we just created
 var User = require('./models/user');
 var Character = require('./models/character');
+var CharacterModel = Character.model;
 
     module.exports = function(app) {
 
@@ -17,7 +18,7 @@ var Character = require('./models/character');
       });
 
       app.get("/api/characters/:id", function(req, res, next) {
-        Character.findOne({_id: req.params.id}).then(function(err, characters) {
+        CharacterModel.findOne({_id: req.params.id}).then(function(err, characters) {
           if(err) {
             res.send(err);
           } else {
@@ -37,7 +38,7 @@ var Character = require('./models/character');
 
       app.post("/api/characters", function(req, res, next) {
           //create a new character model and send it to db
-        Character.create(req.body).then(function(character) {
+        CharacterModel.create(req.body).then(function(character) {
           res.send(character);
         }).catch(next);
       });
@@ -53,8 +54,8 @@ var Character = require('./models/character');
 
       //update character in db
       app.put("/api/characters/:id", function(req, res, next) {
-        Character.findByIdAndUpdate({_id: req.params.id}, req.body).then(function() {
-          Character.findOne({_id: req.params.id}).then(function(character) {
+        CharacterModel.findByIdAndUpdate({_id: req.params.id}, req.body).then(function() {
+          CharacterModel.findOne({_id: req.params.id}).then(function(character) {
             res.send(character);
           });
         });
@@ -70,14 +71,14 @@ var Character = require('./models/character');
 
       //delete character from db
       app.delete("/api/characters/:id", function(req, res, next) {
-        Character.findByIdAndRemove({_id: req.params.id}).then(function(character) {
+        CharacterModel.findByIdAndRemove({_id: req.params.id}).then(function(character) {
           res.send(character);
         });
       });
         // frontend routes =========================================================
         // route to handle all angular requests
         app.get('*', function(req, res) {
-            res.sendfile('./public/views/index.html'); // load our public/index.html file
+            res.sendFile('/public/views/index.html', {root: "./"}); // load our public/index.html file
         });
 
     };

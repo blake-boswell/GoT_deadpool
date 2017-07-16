@@ -1,4 +1,4 @@
-deadPool.controller('characterCtrl', function($scope) {
+angular.module("characterCtrl", []).controller('characterController', function($scope) {
     $scope.chosen = {name: "", payout: 0};
     $scope.names = [
       "Tyrion Lannister",

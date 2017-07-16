@@ -1,4 +1,4 @@
-deadPool.controller("loginCtrl", ["$scope", function($scope) {
+angular.module("loginCtrl", []).controller("loginController", ["$scope", function($scope) {
   $scope.FBLogin = function() {
     console.log("Button pressed");
     FB.login(function(response) {

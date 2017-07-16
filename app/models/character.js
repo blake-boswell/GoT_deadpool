@@ -23,4 +23,7 @@ var CharacterSchema = new Schema({
 
 var Character = mongoose.model("character", CharacterSchema);
 
-module.exports = Character;
+module.exports = {
+                    schema: CharacterSchema,
+                    model: Character
+                  };

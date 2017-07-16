@@ -1,4 +1,5 @@
-var deadPool = angular.module("deadPool", ["ngRoute"]);
+var deadPoolApp = angular.module("deadPoolApp", ["ngRoute", "appRoutes", "characterCtrl",
+"loginCtrl", "characterService"]);
 
 //Set up facebook login
 window.fbAsyncInit = function() {

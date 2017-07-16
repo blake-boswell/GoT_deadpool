@@ -1,7 +1,8 @@
 // grab the mongoose module
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var CharacterSchema = require('./character')
+var Character = require('./character')
+var CharacterSchema = Character.schema;
 
 var UserSchema = new Schema({
   name: {
