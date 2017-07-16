@@ -1,0 +1,21 @@
+<h1>Game of Thrones - Season 7 Dead Pool</h1>
+<div class="btn-group" data-toggle="buttons" ng-controller="characterCtrl">
+  <div class="character" >
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="name in names">
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container-fluid">
+              <img class="display-3" src="http://via.placeholder.com/150x150"></img>
+              <hr class="my-4">
+              <button type="button" class="btn btn-primary select-btn"
+              data-toggle="button" aria-pressed="false"
+              autocomplete="off" ng-click="toggleChoice(name)"
+              > {{ name }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

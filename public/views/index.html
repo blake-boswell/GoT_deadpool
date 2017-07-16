@@ -61,6 +61,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
+            <li><a href="/home">Home</a></li>
             <li><a href="#">My Group</a></li>
             <li><a href="#">Current Pick</a></li>
             <!-- <li class="dropdown">
@@ -127,26 +128,8 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <h1>Game of Thrones - Season 7 Dead Pool</h1>
-    <div class="btn-group" data-toggle="buttons" ng-controller="characterCtrl">
-      <div class="character" >
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="name in names">
-              <div class="jumbotron jumbotron-fluid">
-                <div class="container-fluid">
-                  <img class="display-3" src="http://via.placeholder.com/150x150"></img>
-                  <hr class="my-4">
-                  <button type="button" class="btn btn-primary select-btn"
-                  data-toggle="button" aria-pressed="false"
-                  autocomplete="off" ng-click="toggleChoice(name)"
-                  > {{ name }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div ng-view>
+      <!-- Angular js Dynamic Content -->
     </div>
   </body>
 </html>
