@@ -50,6 +50,11 @@ app.use(function(err, req, res, next) {
   res.status(422).send({error: err.message});
 });
 
+// Uncomment after ng build
+// app.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "public/index.html"));
+// });
+
 // start app ===============================================
 // startup our app at http://localhost:8080
 app.listen(port, function(){
