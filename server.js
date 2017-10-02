@@ -14,7 +14,7 @@ var characters = require("./routes/characters");
 require("./config/mongoose.config")(db)
 
 // set our port
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8080;
 
 // cors middleware
 app.use(cors());
@@ -39,7 +39,7 @@ app.use(function(err, req, res, next) {
 });
 
 // start app ===============================================
-// startup our app at http://localhost:8000
+// startup our app at http://localhost:8080
 app.listen(port, function(){
   // shoutout to the user
   console.log('Magic happens on port ' + port);
