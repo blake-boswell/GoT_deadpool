@@ -17,13 +17,17 @@ import { ValidateService } from './services/validate.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { CharactersComponent } from './components/characters/characters.component';
+import { CharactersService } from './services/characters.service';
+import { CharacterFormComponent } from './components/character-form/character-form.component';
 
 const appRoutes: Routes = [
   {path: "", component: HomeComponent},
   {path: "register", component: RegisterComponent},
   {path: "login", component: LoginComponent},
   {path: "dashboard", component: DashboardComponent, canActivate:[AuthGuard]},
-  {path: "profile", component: ProfileComponent, canActivate:[AuthGuard]}
+  {path: "profile", component: ProfileComponent, canActivate:[AuthGuard]},
+  {path: "create/character", component: CharacterFormComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
@@ -34,7 +38,9 @@ const appRoutes: Routes = [
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    CharactersComponent,
+    CharacterFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [ValidateService, AuthService, AuthGuard, CharactersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

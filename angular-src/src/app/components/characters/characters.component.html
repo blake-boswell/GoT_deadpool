@@ -1,0 +1,16 @@
+<div class="row">
+  Test
+  <div *ngFor="let character of characters" class="col-md-3">
+    <button>
+      <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src="{{ character.imagePath }}" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">{{ character.name }}</h4>
+          <p class="card-text">{{ character.value }}</p>
+        </div>
+      </div>
+    </button>
+
+
+  </div>
+</div>

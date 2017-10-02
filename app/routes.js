@@ -10,15 +10,6 @@ var router = express.Router();
   // server routes ===========================================================
 
 // gets ========================================================================
-router.get("/api/users/:id", function(req, res, next) {
-  User.findOne({_id: req.params.id}).then(function(err, users) {
-    if(err) {
-      res.send(err);
-    } else {
-      res.send(users);
-    }
-  });
-});
 
 router.get("/api/characters/:id", function(req, res, next) {
   CharacterModel.findOne({_id: req.params.id}).then(function(err, characters) {
@@ -31,13 +22,6 @@ router.get("/api/characters/:id", function(req, res, next) {
 });
 
 // posts =======================================================================
-//post user in db
-router.post("/api/users", function(req, res, next) {
-    //create a new user model and send it to db
-  User.create(req.body).then(function(user) {
-    res.send(user);
-  }).catch(next);
-});
 
 router.post("/api/characters", function(req, res, next) {
     //create a new character model and send it to db
@@ -46,15 +30,6 @@ router.post("/api/characters", function(req, res, next) {
   }).catch(next);
 });
 // updates =====================================================================
-//update user in db
-router.put("/api/users/:id", function(req, res, next) {
-  User.findByIdAndUpdate({_id: req.params.id}, req.body).then(function() {
-    User.findOne({_id: req.params.id}).then(function(user) {
-      res.send(user);
-    });
-  });
-});
-
 //update character in db
 router.put("/api/characters/:id", function(req, res, next) {
   CharacterModel.findByIdAndUpdate({_id: req.params.id}, req.body).then(function() {
@@ -65,12 +40,6 @@ router.put("/api/characters/:id", function(req, res, next) {
 });
 
 // deletes =====================================================================
-//delete user from db
-router.delete("/api/users/:id", function(req, res, next) {
-  User.findByIdAndRemove({_id: req.params.id}).then(function(user) {
-    res.send(user);
-  });
-});
 
 //delete character from db
 router.delete("/api/characters/:id", function(req, res, next) {

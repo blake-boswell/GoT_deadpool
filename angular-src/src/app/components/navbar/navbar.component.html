@@ -18,6 +18,9 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a [routerLink]="['/create/character']">Add Character</a>
+            </li>
+            <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
               <a [routerLink]="['/dashboard']">Dashboard</a>
             </li>
             <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">

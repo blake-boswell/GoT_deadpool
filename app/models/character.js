@@ -1,6 +1,7 @@
 // grab the mongoose module
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var fs = require('fs');
 
 // create Schema and models
 var CharacterSchema = new Schema({
@@ -8,8 +9,9 @@ var CharacterSchema = new Schema({
     type: String,
     required: [true, "Name field required"]
   },
-  image: {
-    type: String
+  imagePath: {
+    type: String,
+    default: "na"
   },
   value:{
     type: Number,
@@ -21,9 +23,17 @@ var CharacterSchema = new Schema({
   },
 });
 
-var Character = mongoose.model("character", CharacterSchema);
+var Character = mongoose.model("Character", CharacterSchema);
 
 module.exports = {
                     schema: CharacterSchema,
                     model: Character
                   };
+module.exports.storeImage = function(character, imgPath) {
+    character.img.data = fs.readFileSync(imgPath);
+    character.img.contentType = 'image/png';
+    character.save(function (err) {
+      if (err) throw err;
+      console.error('saved img to mongo');
+    });
+}
