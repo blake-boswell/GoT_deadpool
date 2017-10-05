@@ -49,7 +49,7 @@ export class CharacterFormComponent implements OnInit {
 
   fileChange(event) {
     console.log(event);
-    this.imagePath = "/assets/uploads/" + event.path[0].files[0].name;
+    this.imagePath = "/assets/uploads/resized_images/resized_" + event.path[0].files[0].name;
     this.image = event.path[0].files[0];
     console.log("Image:");
     console.log(this.image);

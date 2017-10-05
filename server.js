@@ -14,7 +14,7 @@ var characters = require("./routes/characters");
 require("./config/mongoose.config")(db)
 
 // set our port
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8000;
 
 // cors middleware
 app.use(cors());

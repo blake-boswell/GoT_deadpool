@@ -24,6 +24,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 var fs = require('fs');
+var jimp = require("jimp");
 
 
 
@@ -112,6 +113,21 @@ router.post("/api/characters", function(req, res, next) {
 
 router.post("/api/image", upload.single('photo'), function(req, res, next) {
   console.log("POSTING IMAGE");
+  jimp.read(req.file.path, function(err, image) {
+    if(!err) {
+      console.log("No errors! Image is: ");
+      console.log(image);
+      image.resize(jimp.AUTO, 200).quality(80)
+      .write("angular-src/src/assets/uploads/resized_images/resized_"
+       + req.file.originalname);
+       //if getWidth > 250) -> cropt to 200x200
+    } else {
+      console.log("Couldn't find file at path " + req.file.path);
+      console.log(err);
+    }
+
+  })
+
   console.log(req.file);
   Image.create(
     {
