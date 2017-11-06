@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+/* When you are on a device larger than 450px */
+@media screen and (min-width: 450px) {
+  .page-content {
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+  }
+}

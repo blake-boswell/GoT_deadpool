@@ -117,10 +117,37 @@ router.post("/api/image", upload.single('photo'), function(req, res, next) {
     if(!err) {
       console.log("No errors! Image is: ");
       console.log(image);
-      image.resize(jimp.AUTO, 200).quality(80)
-      .write("angular-src/src/assets/uploads/resized_images/resized_"
-       + req.file.originalname);
-       //if getWidth > 250) -> cropt to 200x200
+      var width = image.resize(jimp.AUTO, 200).bitmap.width;
+      var height = image.resize(jimp.AUTO, 200).bitmap.height;
+      console.log("Width: "+ width);
+      console.log("Height: " + height);
+      if(width > 200) {
+        //crop the resized image to 200x200
+        image.resize(jimp.AUTO, 200).crop((width - 200)/2, 0, 200, 200).quality(80)
+        .write("angular-src/src/assets/uploads/resized_images/resized_"
+         + req.file.originalname, function(err) {
+           if(err) {
+             console.log("[Cropped] Resized file could not be stored at the path " +
+             "angular-src/src/assets/uploads/resized_images/\n Error: ");
+             console.log(err);
+           } else {
+             console.log("[Croppped] Success! Resized image stored!");
+           }
+         });
+      } else {
+        image.resize(jimp.AUTO, 200).cover(200, 200).quality(80)
+        .write("angular-src/src/assets/uploads/resized_images/resized_"
+         + req.file.originalname, function(err) {
+           if(err) {
+             console.log("Resized file could not be stored at the path " +
+             "angular-src/src/assets/uploads/resized_images/\n Error: ");
+             console.log(err);
+           } else {
+             console.log("Success! Resized image stored!");
+           }
+         });
+      }
+
     } else {
       console.log("Couldn't find file at path " + req.file.path);
       console.log(err);
